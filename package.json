@@ -1,13 +1,12 @@
 {
-  "name": "docus-starter",
+  "name": "asetio-website",
   "scripts": {
-    "dev": "nuxt dev --extends docus",
-    "build": "nuxt build --extends docus"
+    "dev": "nuxt dev",
+    "build": "nuxt build"
   },
   "dependencies": {
     "@nuxt/icon": "^2.1.0",
-    "better-sqlite3": "^12.5.0",
-    "docus": "latest",
+    "@nuxt/ui": "^3.0.0",
     "nuxt": "^4.2.2"
   }
 }

@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
 /* Custom styles for Asetio Docus theme */
 
 :root {

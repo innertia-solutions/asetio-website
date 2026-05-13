@@ -1,11 +1,4 @@
-import { fileURLToPath } from 'node:url'
-
-const docsIndexPage = fileURLToPath(new URL('./app/pages/docs/index.vue', import.meta.url))
-const docsSlugPage = fileURLToPath(new URL('./app/pages/docs/[...slug].vue', import.meta.url))
-
 export default defineNuxtConfig({
-  extends: '@nuxt-themes/docus',
-
   pages: true,
 
   app: {
@@ -19,13 +12,14 @@ export default defineNuxtConfig({
       ],
     },
   },
-  
+
   future: {
     compatibilityVersion: 4
   },
 
   modules: [
-    '@nuxt/icon'
+    '@nuxt/ui',
+    '@nuxt/icon',
   ],
 
   css: ['~/assets/css/custom.css'],
@@ -34,21 +28,5 @@ export default defineNuxtConfig({
     preference: 'light',
     fallback: 'light',
     storageKey: 'asetio-color-mode',
-  },
-
-  hooks: {
-    'pages:extend'(pages) {
-      pages.push({
-        name: 'asetio-docs',
-        path: '/docs',
-        file: docsIndexPage,
-      })
-
-      pages.push({
-        name: 'asetio-docs-slug',
-        path: '/docs/:slug(.*)*',
-        file: docsSlugPage,
-      })
-    },
   },
 })

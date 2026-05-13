@@ -28,6 +28,5 @@ const items = [
   { label: 'Producto', to: '/#producto' },
   { label: 'Monitoreo', to: '/#monitoreo' },
   { label: 'Mantenimiento', to: '/#mantenimiento' },
-  { label: 'Documentacion', to: '/docs/intro', external: true }
 ]
 </script>

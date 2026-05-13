@@ -1,8 +1,5 @@
 <template>
   <div class="hidden items-center gap-2 lg:flex">
-    <UButton :to="docsPath" external color="neutral" variant="ghost" size="sm" icon="i-lucide-book-open">
-      Docs
-    </UButton>
     <UButton
       to="mailto:hola@asetio.com"
       size="sm"
@@ -13,7 +10,3 @@
     </UButton>
   </div>
 </template>
-
-<script setup lang="ts">
-const docsPath = '/docs/intro'
-</script>

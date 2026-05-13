@@ -7,14 +7,15 @@
         <p class="text-sm font-semibold text-sky-700">Monitoreo continuo</p>
         <h2 class="mt-2 text-3xl font-semibold text-slate-950">Triangulación BLE en tiempo real</h2>
         <p class="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
-          Tres gateways miden la señal de cada tag. Con esos tres valores de distancia, Asetio calcula la posición exacta del activo dentro del espacio monitorizado.
+          Tres gateways miden la señal de cada tag. Con esos tres valores de distancia, Asetio calcula la posición
+          exacta del activo dentro del espacio monitorizado.
         </p>
       </div>
 
       <!-- Trilateration diagram -->
       <div class="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
         <svg
-          viewBox="0 0 800 440"
+          viewBox="0 0 800 480"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           class="w-full"
@@ -28,175 +29,158 @@
               <feGaussianBlur stdDeviation="4" result="b" />
               <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
             </filter>
-            <filter id="softglow" x="-100%" y="-100%" width="300%" height="300%">
-              <feGaussianBlur stdDeviation="8" result="b" />
-              <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
-            </filter>
           </defs>
 
           <!-- Background -->
-          <rect width="800" height="440" fill="#f8fafc" />
-          <rect width="800" height="440" fill="url(#tg)" />
+          <rect width="800" height="480" fill="#f8fafc" />
+          <rect width="800" height="480" fill="url(#tg)" />
 
-          <!-- ══ RANGE CIRCLES (signal radii from each gateway) ══ -->
+          <!--
+            Positions:
+              GW-1 center: (170, 100)   GW-2 center: (630, 100)   GW-3 center: (400, 390)
+              Tag: (400, 210)
+            Circle radii equal exact distances to tag so all three circles pass through (400,210):
+              GW-1 → tag: sqrt(230²+110²) ≈ 255    GW-2 → tag: same ≈ 255    GW-3 → tag: 180
+          -->
 
-          <!-- GW-1 circle  center=(150,80)  r=250 -->
-          <circle cx="150" cy="80" r="250"
+          <!-- Range circles -->
+          <circle cx="170" cy="100" r="255"
             fill="#0284c7" fill-opacity="0.04"
-            stroke="#0284c7" stroke-width="1.5" stroke-opacity="0.18">
-            <animate attributeName="stroke-opacity" values="0.18;0.28;0.18"
-              dur="3s" repeatCount="indefinite" begin="0s" />
+            stroke="#0284c7" stroke-width="1.5" stroke-opacity="0.2">
+            <animate attributeName="stroke-opacity" values="0.2;0.34;0.2" dur="3s" repeatCount="indefinite" begin="0s" />
           </circle>
 
-          <!-- GW-2 circle  center=(650,80)  r=320 -->
-          <circle cx="650" cy="80" r="320"
+          <circle cx="630" cy="100" r="255"
             fill="#0369a1" fill-opacity="0.04"
-            stroke="#0369a1" stroke-width="1.5" stroke-opacity="0.18">
-            <animate attributeName="stroke-opacity" values="0.18;0.28;0.18"
-              dur="3s" repeatCount="indefinite" begin="1s" />
+            stroke="#0369a1" stroke-width="1.5" stroke-opacity="0.2">
+            <animate attributeName="stroke-opacity" values="0.2;0.34;0.2" dur="3s" repeatCount="indefinite" begin="1s" />
           </circle>
 
-          <!-- GW-3 circle  center=(400,340)  r=132 -->
-          <circle cx="400" cy="340" r="132"
+          <circle cx="400" cy="390" r="180"
             fill="#0ea5e9" fill-opacity="0.05"
-            stroke="#0ea5e9" stroke-width="1.5" stroke-opacity="0.22">
-            <animate attributeName="stroke-opacity" values="0.22;0.35;0.22"
-              dur="3s" repeatCount="indefinite" begin="2s" />
+            stroke="#0ea5e9" stroke-width="1.5" stroke-opacity="0.24">
+            <animate attributeName="stroke-opacity" values="0.24;0.4;0.24" dur="3s" repeatCount="indefinite" begin="2s" />
           </circle>
 
-          <!-- Intersection highlight (where all 3 circles overlap) -->
-          <circle cx="362" cy="213" r="28"
-            fill="#0284c7" fill-opacity="0.10" />
-          <circle cx="362" cy="213" r="18"
-            fill="#0284c7" fill-opacity="0.10" />
+          <!-- Intersection zone highlight at tag position -->
+          <circle cx="400" cy="210" r="30" fill="#0284c7" fill-opacity="0.07" />
+          <circle cx="400" cy="210" r="17" fill="#0284c7" fill-opacity="0.09" />
 
-          <!-- ══ DISTANCE LINES (GW → Tag, thin & subtle) ══ -->
-
-          <!-- GW1 → tag -->
-          <line x1="150" y1="80" x2="362" y2="213"
-            stroke="#0284c7" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4,4" />
-          <!-- GW2 → tag -->
-          <line x1="650" y1="80" x2="362" y2="213"
-            stroke="#0369a1" stroke-width="1" stroke-opacity="0.2" stroke-dasharray="4,4" />
-          <!-- GW3 → tag -->
-          <line x1="400" y1="340" x2="362" y2="213"
-            stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.25" stroke-dasharray="4,4" />
+          <!-- Dashed distance lines (GW → tag) -->
+          <line x1="170" y1="100" x2="400" y2="210"
+            stroke="#0284c7" stroke-width="1.2" stroke-opacity="0.22" stroke-dasharray="5,5" />
+          <line x1="630" y1="100" x2="400" y2="210"
+            stroke="#0369a1" stroke-width="1.2" stroke-opacity="0.22" stroke-dasharray="5,5" />
+          <line x1="400" y1="390" x2="400" y2="210"
+            stroke="#0ea5e9" stroke-width="1.2" stroke-opacity="0.28" stroke-dasharray="5,5" />
 
           <!-- Distance labels -->
-          <!-- GW1→tag midpoint ≈ (256, 147) -->
-          <rect x="218" y="138" width="56" height="18" rx="4" fill="white" fill-opacity="0.9" />
-          <text x="246" y="151" text-anchor="middle" font-size="8.5" fill="#0369a1"
-            font-family="ui-monospace, monospace">~2.5m  -62dBm</text>
+          <!-- GW1→tag midpoint (285, 155) -->
+          <rect x="237" y="147" width="96" height="18" rx="5"
+            fill="white" fill-opacity="0.95" stroke="#e2e8f0" stroke-width="0.8" />
+          <text x="285" y="160" text-anchor="middle" font-size="9" fill="#0369a1"
+            font-family="ui-monospace, monospace">~2.5 m  −62 dBm</text>
 
-          <!-- GW2→tag midpoint ≈ (506, 147) -->
-          <rect x="468" y="138" width="56" height="18" rx="4" fill="white" fill-opacity="0.9" />
-          <text x="496" y="151" text-anchor="middle" font-size="8.5" fill="#0369a1"
-            font-family="ui-monospace, monospace">~3.2m  -71dBm</text>
+          <!-- GW2→tag midpoint (515, 155) -->
+          <rect x="467" y="147" width="96" height="18" rx="5"
+            fill="white" fill-opacity="0.95" stroke="#e2e8f0" stroke-width="0.8" />
+          <text x="515" y="160" text-anchor="middle" font-size="9" fill="#0369a1"
+            font-family="ui-monospace, monospace">~3.2 m  −71 dBm</text>
 
-          <!-- GW3→tag midpoint ≈ (381, 277) -->
-          <rect x="337" y="268" width="56" height="18" rx="4" fill="white" fill-opacity="0.9" />
-          <text x="365" y="281" text-anchor="middle" font-size="8.5" fill="#0369a1"
-            font-family="ui-monospace, monospace">~1.3m  -58dBm</text>
+          <!-- GW3→tag midpoint (400, 300) — placed left of vertical line -->
+          <rect x="292" y="295" width="96" height="18" rx="5"
+            fill="white" fill-opacity="0.95" stroke="#e2e8f0" stroke-width="0.8" />
+          <text x="340" y="308" text-anchor="middle" font-size="9" fill="#0369a1"
+            font-family="ui-monospace, monospace">~1.3 m  −58 dBm</text>
 
           <!-- ══ GATEWAY CARDS ══ -->
 
-          <!-- GW-1  x=95 y=54 w=110 h=56 · center=(150,80) -->
-          <rect x="95" y="54" width="110" height="56" rx="10"
+          <!-- GW-1: card x=115 y=72 w=110 h=56, signal center=(170,100) -->
+          <rect x="115" y="72" width="110" height="56" rx="10"
             fill="white" stroke="#e2e8f0" stroke-width="1" />
-          <rect x="105" y="63" width="30" height="30" rx="7" fill="#e0f2fe" />
-          <rect x="113" y="83" width="14" height="3" rx="1" fill="#0284c7" />
-          <path d="M 115,80 Q 120,75 125,80" stroke="#0284c7" stroke-width="1.5"
-            fill="none" stroke-linecap="round" />
-          <path d="M 112,77 Q 120,70 128,77" stroke="#0284c7" stroke-width="1.2"
-            fill="none" stroke-linecap="round" stroke-opacity="0.6" />
-          <circle cx="120" cy="84" r="1.5" fill="#0284c7" />
-          <text x="143" y="74" font-size="10" fill="#0f172a"
+          <rect x="125" y="82" width="30" height="30" rx="7" fill="#e0f2fe" />
+          <rect x="133" y="102" width="14" height="3" rx="1" fill="#0284c7" />
+          <path d="M 135,99 Q 140,94 145,99" stroke="#0284c7" stroke-width="1.5" fill="none" stroke-linecap="round" />
+          <path d="M 132,96 Q 140,89 148,96" stroke="#0284c7" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-opacity="0.6" />
+          <circle cx="140" cy="103" r="1.5" fill="#0284c7" />
+          <text x="163" y="92" font-size="10" fill="#0f172a"
             font-family="system-ui, sans-serif" font-weight="700">GW-1</text>
-          <text x="143" y="87" font-size="8.5" fill="#64748b"
+          <text x="163" y="106" font-size="8.5" fill="#64748b"
             font-family="system-ui, sans-serif">Zona norte</text>
-          <!-- active dot -->
-          <circle cx="195" cy="61" r="4" fill="#22c55e" />
-          <circle cx="195" cy="61" r="4" fill="#22c55e" fill-opacity="0.4">
+          <circle cx="215" cy="79" r="4" fill="#22c55e" />
+          <circle cx="215" cy="79" r="4" fill="#22c55e" fill-opacity="0.4">
             <animate attributeName="r" values="4;8;4" dur="2.2s" repeatCount="indefinite" />
             <animate attributeName="fill-opacity" values="0.4;0;0.4" dur="2.2s" repeatCount="indefinite" />
           </circle>
 
-          <!-- GW-2  x=595 y=54 w=110 h=56 · center=(650,80) -->
-          <rect x="595" y="54" width="110" height="56" rx="10"
+          <!-- GW-2: card x=575 y=72 w=110 h=56, signal center=(630,100) -->
+          <rect x="575" y="72" width="110" height="56" rx="10"
             fill="white" stroke="#e2e8f0" stroke-width="1" />
-          <rect x="605" y="63" width="30" height="30" rx="7" fill="#e0f2fe" />
-          <rect x="613" y="83" width="14" height="3" rx="1" fill="#0284c7" />
-          <path d="M 615,80 Q 620,75 625,80" stroke="#0284c7" stroke-width="1.5"
-            fill="none" stroke-linecap="round" />
-          <path d="M 612,77 Q 620,70 628,77" stroke="#0284c7" stroke-width="1.2"
-            fill="none" stroke-linecap="round" stroke-opacity="0.6" />
-          <circle cx="620" cy="84" r="1.5" fill="#0284c7" />
-          <text x="643" y="74" font-size="10" fill="#0f172a"
+          <rect x="585" y="82" width="30" height="30" rx="7" fill="#e0f2fe" />
+          <rect x="593" y="102" width="14" height="3" rx="1" fill="#0284c7" />
+          <path d="M 595,99 Q 600,94 605,99" stroke="#0284c7" stroke-width="1.5" fill="none" stroke-linecap="round" />
+          <path d="M 592,96 Q 600,89 608,96" stroke="#0284c7" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-opacity="0.6" />
+          <circle cx="600" cy="103" r="1.5" fill="#0284c7" />
+          <text x="623" y="92" font-size="10" fill="#0f172a"
             font-family="system-ui, sans-serif" font-weight="700">GW-2</text>
-          <text x="643" y="87" font-size="8.5" fill="#64748b"
+          <text x="623" y="106" font-size="8.5" fill="#64748b"
             font-family="system-ui, sans-serif">Zona sur</text>
-          <!-- active dot -->
-          <circle cx="695" cy="61" r="4" fill="#22c55e" />
-          <circle cx="695" cy="61" r="4" fill="#22c55e" fill-opacity="0.4">
+          <circle cx="675" cy="79" r="4" fill="#22c55e" />
+          <circle cx="675" cy="79" r="4" fill="#22c55e" fill-opacity="0.4">
             <animate attributeName="r" values="4;8;4" dur="2.2s" repeatCount="indefinite" begin="0.7s" />
             <animate attributeName="fill-opacity" values="0.4;0;0.4" dur="2.2s" repeatCount="indefinite" begin="0.7s" />
           </circle>
 
-          <!-- GW-3  x=345 y=312 w=110 h=56 · center=(400,340) -->
-          <rect x="345" y="312" width="110" height="56" rx="10"
+          <!-- GW-3: card x=345 y=362 w=110 h=56, signal center=(400,390) -->
+          <rect x="345" y="362" width="110" height="56" rx="10"
             fill="white" stroke="#e2e8f0" stroke-width="1" />
-          <rect x="355" y="321" width="30" height="30" rx="7" fill="#e0f2fe" />
-          <rect x="363" y="341" width="14" height="3" rx="1" fill="#0284c7" />
-          <path d="M 365,338 Q 370,333 375,338" stroke="#0284c7" stroke-width="1.5"
-            fill="none" stroke-linecap="round" />
-          <path d="M 362,335 Q 370,328 378,335" stroke="#0284c7" stroke-width="1.2"
-            fill="none" stroke-linecap="round" stroke-opacity="0.6" />
-          <circle cx="370" cy="342" r="1.5" fill="#0284c7" />
-          <text x="393" y="331" font-size="10" fill="#0f172a"
+          <rect x="355" y="372" width="30" height="30" rx="7" fill="#e0f2fe" />
+          <rect x="363" y="392" width="14" height="3" rx="1" fill="#0284c7" />
+          <path d="M 365,389 Q 370,384 375,389" stroke="#0284c7" stroke-width="1.5" fill="none" stroke-linecap="round" />
+          <path d="M 362,386 Q 370,379 378,386" stroke="#0284c7" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-opacity="0.6" />
+          <circle cx="370" cy="393" r="1.5" fill="#0284c7" />
+          <text x="393" y="382" font-size="10" fill="#0f172a"
             font-family="system-ui, sans-serif" font-weight="700">GW-3</text>
-          <text x="393" y="344" font-size="8.5" fill="#64748b"
+          <text x="393" y="395" font-size="8.5" fill="#64748b"
             font-family="system-ui, sans-serif">Zona central</text>
-          <!-- active dot -->
-          <circle cx="445" cy="319" r="4" fill="#22c55e" />
-          <circle cx="445" cy="319" r="4" fill="#22c55e" fill-opacity="0.4">
+          <circle cx="445" cy="369" r="4" fill="#22c55e" />
+          <circle cx="445" cy="369" r="4" fill="#22c55e" fill-opacity="0.4">
             <animate attributeName="r" values="4;8;4" dur="2.2s" repeatCount="indefinite" begin="1.4s" />
             <animate attributeName="fill-opacity" values="0.4;0;0.4" dur="2.2s" repeatCount="indefinite" begin="1.4s" />
           </circle>
 
-          <!-- ══ PINGS (encima de todas las cards) ══ -->
-          <circle cx="150" cy="80" r="6" stroke="#0284c7" stroke-width="1.5" fill="none" stroke-opacity="0">
-            <animate attributeName="r" values="6;52;6" dur="3s" repeatCount="indefinite" begin="0s" />
-            <animate attributeName="stroke-opacity" values="0.45;0;0.45" dur="3s" repeatCount="indefinite" begin="0s" />
+          <!-- Ping animations (contained radius) -->
+          <circle cx="170" cy="100" r="6" stroke="#0284c7" stroke-width="1.5" fill="none">
+            <animate attributeName="r" values="6;36;6" dur="3s" repeatCount="indefinite" begin="0s" />
+            <animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite" begin="0s" />
           </circle>
-          <circle cx="650" cy="80" r="6" stroke="#0284c7" stroke-width="1.5" fill="none" stroke-opacity="0">
-            <animate attributeName="r" values="6;52;6" dur="3s" repeatCount="indefinite" begin="1s" />
-            <animate attributeName="stroke-opacity" values="0.45;0;0.45" dur="3s" repeatCount="indefinite" begin="1s" />
+          <circle cx="630" cy="100" r="6" stroke="#0284c7" stroke-width="1.5" fill="none">
+            <animate attributeName="r" values="6;36;6" dur="3s" repeatCount="indefinite" begin="1s" />
+            <animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite" begin="1s" />
           </circle>
-          <circle cx="400" cy="340" r="6" stroke="#0284c7" stroke-width="1.5" fill="none" stroke-opacity="0">
-            <animate attributeName="r" values="6;52;6" dur="3s" repeatCount="indefinite" begin="2s" />
-            <animate attributeName="stroke-opacity" values="0.45;0;0.45" dur="3s" repeatCount="indefinite" begin="2s" />
+          <circle cx="400" cy="390" r="6" stroke="#0284c7" stroke-width="1.5" fill="none">
+            <animate attributeName="r" values="6;36;6" dur="3s" repeatCount="indefinite" begin="2s" />
+            <animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite" begin="2s" />
           </circle>
 
-          <!-- ══ TAG — Rack UPS at intersection (362, 213) ══ -->
-          <!-- outer pulse -->
-          <circle cx="362" cy="213" r="24" stroke="#0284c7" stroke-width="1"
+          <!-- TAG — Rack UPS at intersection (400, 210) -->
+          <circle cx="400" cy="210" r="24" stroke="#0284c7" stroke-width="1"
             stroke-dasharray="3,3" fill="none">
             <animate attributeName="r" values="20;32;20" dur="2s" repeatCount="indefinite" />
             <animate attributeName="stroke-opacity" values="0.5;0.1;0.5" dur="2s" repeatCount="indefinite" />
           </circle>
-          <!-- dot -->
-          <circle cx="362" cy="213" r="11" fill="#0284c7" filter="url(#glow)" />
-          <circle cx="362" cy="213" r="5.5" fill="white" />
-          <!-- label -->
-          <text x="362" y="252" text-anchor="middle" font-size="10.5" fill="#0f172a"
-            font-family="system-ui, sans-serif" font-weight="600">Rack UPS</text>
-          <text x="362" y="265" text-anchor="middle" font-size="8" fill="#94a3b8"
+          <circle cx="400" cy="210" r="11" fill="#0284c7" filter="url(#glow)" />
+          <circle cx="400" cy="210" r="5.5" fill="white" />
+
+          <!-- Tag label — centered below dot with clear vertical spacing -->
+          <text x="400" y="250" text-anchor="middle" font-size="11" fill="#0f172a"
+            font-family="system-ui, sans-serif" font-weight="700">Rack UPS</text>
+          <text x="400" y="263" text-anchor="middle" font-size="8.5" fill="#94a3b8"
             font-family="ui-monospace, monospace">tag A-17</text>
-          <!-- position badge -->
-          <rect x="322" y="271" width="80" height="16" rx="8"
+          <rect x="336" y="270" width="128" height="16" rx="8"
             fill="#0284c7" fill-opacity="0.1" stroke="#bae6fd" stroke-width="1" />
-          <text x="362" y="283" text-anchor="middle" font-size="7.5" fill="#0369a1"
-            font-family="system-ui, sans-serif" font-weight="600" letter-spacing="0.03em">POSICIÓN ESTIMADA</text>
+          <text x="400" y="282" text-anchor="middle" font-size="7.5" fill="#0369a1"
+            font-family="system-ui, sans-serif" font-weight="700" letter-spacing="0.04em">POSICIÓN ESTIMADA</text>
 
         </svg>
       </div>
