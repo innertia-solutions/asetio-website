@@ -1,0 +1,77 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" fill="#F8FAFC"/>
+  <rect x="56" y="54" width="1488" height="892" rx="18" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2"/>
+  <rect x="56" y="54" width="1488" height="84" rx="18" fill="#F1F5F9"/>
+  <path d="M56 120H1544" stroke="#CBD5E1" stroke-width="2"/>
+  <circle cx="99" cy="96" r="10" fill="#FB7185"/>
+  <circle cx="131" cy="96" r="10" fill="#FBBF24"/>
+  <circle cx="163" cy="96" r="10" fill="#38BDF8"/>
+  <rect x="1114" y="78" width="248" height="36" rx="9" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="1138" y="102" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="18">ops.asetio.com/activos</text>
+  <rect x="1390" y="76" width="112" height="40" rx="20" fill="#E0F2FE" stroke="#7DD3FC"/>
+  <text x="1414" y="102" fill="#0369A1" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="600">En vivo</text>
+
+  <rect x="96" y="178" width="218" height="726" rx="12" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <rect x="128" y="216" width="48" height="48" rx="12" fill="#0284C7"/>
+  <path d="M151 230L136 239V257L151 266L166 257V239L151 230Z" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"/>
+  <text x="192" y="238" fill="#020617" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="700">Asetio</text>
+  <text x="192" y="264" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="18">Operaciones</text>
+  <rect x="128" y="322" width="150" height="52" rx="10" fill="#E0F2FE"/>
+  <text x="154" y="355" fill="#075985" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Activos</text>
+  <text x="154" y="424" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="20">Alertas</text>
+  <text x="154" y="491" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="20">Mantenimiento</text>
+  <text x="154" y="558" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="20">Historial</text>
+
+  <rect x="352" y="178" width="344" height="158" rx="12" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="384" y="233" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="20">Activos monitoreados</text>
+  <text x="384" y="293" fill="#020617" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="800">1.248</text>
+  <path d="M638 218C650 230 650 250 638 262C626 274 606 274 594 262C582 250 582 230 594 218C606 206 626 206 638 218Z" stroke="#0284C7" stroke-width="8"/>
+  <rect x="724" y="178" width="344" height="158" rx="12" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="756" y="233" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="20">Criticos bajo control</text>
+  <text x="756" y="293" fill="#020617" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="800">94%</text>
+  <path d="M1004 211L1030 222V246C1030 271 1014 290 1004 296C994 290 978 271 978 246V222L1004 211Z" stroke="#0284C7" stroke-width="8" stroke-linejoin="round"/>
+  <rect x="1096" y="178" width="352" height="158" rx="12" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="1128" y="233" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="20">Acciones abiertas</text>
+  <text x="1128" y="293" fill="#020617" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="800">18</text>
+
+  <rect x="352" y="378" width="746" height="374" rx="12" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="392" y="435" fill="#020617" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700">Mapa operacional</text>
+  <text x="392" y="466" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="19">Activos por zona y condicion</text>
+  <rect x="843" y="414" width="210" height="42" rx="21" fill="#FFFBEB" stroke="#F59E0B"/>
+  <text x="874" y="441" fill="#B45309" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700">3 requieren accion</text>
+  <rect x="392" y="506" width="250" height="190" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="424" y="548" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Sala tecnica</text>
+  <circle cx="517" cy="615" r="72" fill="#E0F2FE" stroke="#38BDF8"/>
+  <circle cx="517" cy="615" r="45" fill="#F8FAFC" stroke="#7DD3FC"/>
+  <rect x="489" y="594" width="56" height="20" rx="4" stroke="#0284C7" stroke-width="5"/>
+  <rect x="489" y="624" width="56" height="20" rx="4" stroke="#0284C7" stroke-width="5"/>
+  <rect x="676" y="506" width="166" height="190" rx="10" fill="#F8FAFC" stroke="#CBD5E1"/>
+  <text x="708" y="548" fill="#475569" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Bodega</text>
+  <path d="M758 588L808 616V674L758 702L708 674V616L758 588Z" stroke="#0284C7" stroke-width="8" stroke-linejoin="round"/>
+  <rect x="876" y="506" width="177" height="190" rx="10" fill="#FFFBEB" stroke="#FBBF24"/>
+  <text x="908" y="548" fill="#92400E" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Energia</text>
+  <path d="M966 588L1018 680H914L966 588Z" stroke="#D97706" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M966 624V654" stroke="#D97706" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="966" cy="671" r="5" fill="#D97706"/>
+
+  <rect x="1130" y="378" width="318" height="374" rx="12" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="1170" y="435" fill="#020617" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="700">Alertas recientes</text>
+  <g font-family="Inter, Arial, sans-serif">
+    <rect x="1170" y="484" width="52" height="52" rx="10" fill="#F1F5F9"/>
+    <text x="1248" y="505" fill="#0F172A" font-size="18" font-weight="700">UPS principal cambio</text>
+    <text x="1248" y="532" fill="#64748B" font-size="16">Hace 42 s</text>
+    <rect x="1170" y="581" width="52" height="52" rx="10" fill="#F1F5F9"/>
+    <text x="1248" y="602" fill="#0F172A" font-size="18" font-weight="700">Generador requiere</text>
+    <text x="1248" y="629" fill="#64748B" font-size="16">Hace 3 min</text>
+    <rect x="1170" y="678" width="52" height="52" rx="10" fill="#F1F5F9"/>
+    <text x="1248" y="699" fill="#0F172A" font-size="18" font-weight="700">Rack recupero estado</text>
+    <text x="1248" y="726" fill="#64748B" font-size="16">Hace 9 min</text>
+  </g>
+
+  <rect x="352" y="790" width="1096" height="82" rx="12" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="392" y="840" fill="#020617" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="700">UPS Principal</text>
+  <text x="654" y="840" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="20">Sala tecnica</text>
+  <rect x="959" y="815" width="90" height="34" rx="17" fill="#FFFBEB" stroke="#F59E0B"/>
+  <text x="982" y="838" fill="#B45309" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">Revisar</text>
+  <text x="1274" y="840" fill="#64748B" font-family="Inter, Arial, sans-serif" font-size="20">Inspeccion</text>
+</svg>
