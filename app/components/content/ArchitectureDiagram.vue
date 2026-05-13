@@ -149,18 +149,36 @@
             <animate attributeName="fill-opacity" values="0.4;0;0.4" dur="2.2s" repeatCount="indefinite" begin="1.4s" />
           </circle>
 
-          <!-- Ping animations (contained radius) -->
-          <circle cx="170" cy="100" r="6" stroke="#0284c7" stroke-width="1.5" fill="none">
-            <animate attributeName="r" values="6;36;6" dur="3s" repeatCount="indefinite" begin="0s" />
-            <animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite" begin="0s" />
+          <!-- Ripple waves — each gateway emits 2 staggered expanding rings that fade out -->
+
+          <!-- GW-1 ripples -->
+          <circle cx="170" cy="100" fill="none" stroke="#0284c7" stroke-width="1.4">
+            <animate attributeName="r" from="8" to="52" dur="2.4s" repeatCount="indefinite" begin="0s" calcMode="spline" keySplines="0.2 0 0.8 1" />
+            <animate attributeName="stroke-opacity" from="0.45" to="0" dur="2.4s" repeatCount="indefinite" begin="0s" />
           </circle>
-          <circle cx="630" cy="100" r="6" stroke="#0284c7" stroke-width="1.5" fill="none">
-            <animate attributeName="r" values="6;36;6" dur="3s" repeatCount="indefinite" begin="1s" />
-            <animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite" begin="1s" />
+          <circle cx="170" cy="100" fill="none" stroke="#0284c7" stroke-width="1.4">
+            <animate attributeName="r" from="8" to="52" dur="2.4s" repeatCount="indefinite" begin="1.2s" calcMode="spline" keySplines="0.2 0 0.8 1" />
+            <animate attributeName="stroke-opacity" from="0.45" to="0" dur="2.4s" repeatCount="indefinite" begin="1.2s" />
           </circle>
-          <circle cx="400" cy="390" r="6" stroke="#0284c7" stroke-width="1.5" fill="none">
-            <animate attributeName="r" values="6;36;6" dur="3s" repeatCount="indefinite" begin="2s" />
-            <animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="3s" repeatCount="indefinite" begin="2s" />
+
+          <!-- GW-2 ripples -->
+          <circle cx="630" cy="100" fill="none" stroke="#0284c7" stroke-width="1.4">
+            <animate attributeName="r" from="8" to="52" dur="2.4s" repeatCount="indefinite" begin="0.8s" calcMode="spline" keySplines="0.2 0 0.8 1" />
+            <animate attributeName="stroke-opacity" from="0.45" to="0" dur="2.4s" repeatCount="indefinite" begin="0.8s" />
+          </circle>
+          <circle cx="630" cy="100" fill="none" stroke="#0284c7" stroke-width="1.4">
+            <animate attributeName="r" from="8" to="52" dur="2.4s" repeatCount="indefinite" begin="2.0s" calcMode="spline" keySplines="0.2 0 0.8 1" />
+            <animate attributeName="stroke-opacity" from="0.45" to="0" dur="2.4s" repeatCount="indefinite" begin="2.0s" />
+          </circle>
+
+          <!-- GW-3 ripples -->
+          <circle cx="400" cy="390" fill="none" stroke="#0284c7" stroke-width="1.4">
+            <animate attributeName="r" from="8" to="52" dur="2.4s" repeatCount="indefinite" begin="1.6s" calcMode="spline" keySplines="0.2 0 0.8 1" />
+            <animate attributeName="stroke-opacity" from="0.45" to="0" dur="2.4s" repeatCount="indefinite" begin="1.6s" />
+          </circle>
+          <circle cx="400" cy="390" fill="none" stroke="#0284c7" stroke-width="1.4">
+            <animate attributeName="r" from="8" to="52" dur="2.4s" repeatCount="indefinite" begin="2.8s" calcMode="spline" keySplines="0.2 0 0.8 1" />
+            <animate attributeName="stroke-opacity" from="0.45" to="0" dur="2.4s" repeatCount="indefinite" begin="2.8s" />
           </circle>
 
           <!-- TAG — Rack UPS at intersection (400, 210) -->
