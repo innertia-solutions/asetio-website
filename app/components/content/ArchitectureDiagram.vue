@@ -45,26 +45,26 @@
 
           <!-- Range circles -->
           <circle cx="170" cy="100" r="255"
-            fill="#0284c7" fill-opacity="0.04"
-            stroke="#0284c7" stroke-width="1.5" stroke-opacity="0.2">
-            <animate attributeName="stroke-opacity" values="0.2;0.34;0.2" dur="3s" repeatCount="indefinite" begin="0s" />
+            fill="#22c55e" fill-opacity="0.02"
+            stroke="#22c55e" stroke-width="1" stroke-opacity="0.12">
+            <animate attributeName="stroke-opacity" values="0.12;0.2;0.12" dur="3s" repeatCount="indefinite" begin="0s" />
           </circle>
 
           <circle cx="630" cy="100" r="255"
-            fill="#0369a1" fill-opacity="0.04"
-            stroke="#0369a1" stroke-width="1.5" stroke-opacity="0.2">
-            <animate attributeName="stroke-opacity" values="0.2;0.34;0.2" dur="3s" repeatCount="indefinite" begin="1s" />
+            fill="#22c55e" fill-opacity="0.02"
+            stroke="#22c55e" stroke-width="1" stroke-opacity="0.12">
+            <animate attributeName="stroke-opacity" values="0.12;0.2;0.12" dur="3s" repeatCount="indefinite" begin="1s" />
           </circle>
 
           <circle cx="400" cy="390" r="180"
-            fill="#0ea5e9" fill-opacity="0.05"
-            stroke="#0ea5e9" stroke-width="1.5" stroke-opacity="0.24">
-            <animate attributeName="stroke-opacity" values="0.24;0.4;0.24" dur="3s" repeatCount="indefinite" begin="2s" />
+            fill="#22c55e" fill-opacity="0.02"
+            stroke="#22c55e" stroke-width="1" stroke-opacity="0.14">
+            <animate attributeName="stroke-opacity" values="0.14;0.22;0.14" dur="3s" repeatCount="indefinite" begin="2s" />
           </circle>
 
           <!-- Intersection zone highlight at tag position -->
-          <circle cx="400" cy="210" r="30" fill="#0284c7" fill-opacity="0.07" />
-          <circle cx="400" cy="210" r="17" fill="#0284c7" fill-opacity="0.09" />
+          <circle cx="400" cy="210" r="30" fill="#22c55e" fill-opacity="0.07" />
+          <circle cx="400" cy="210" r="17" fill="#22c55e" fill-opacity="0.08" />
 
           <!-- Dashed distance lines (GW → tag) -->
           <line x1="170" y1="100" x2="400" y2="210"
@@ -92,6 +92,38 @@
             fill="white" fill-opacity="0.95" stroke="#e2e8f0" stroke-width="0.8" />
           <text x="340" y="308" text-anchor="middle" font-size="9" fill="#0369a1"
             font-family="ui-monospace, monospace">~1.3 m  −58 dBm</text>
+
+          <!-- Ripple waves — expand to full coverage radius, green, fade out -->
+
+          <!-- GW-1 ripples (r → 255) -->
+          <circle cx="170" cy="100" fill="none" stroke="#22c55e" stroke-width="1.2">
+            <animate attributeName="r" from="10" to="255" dur="3.2s" repeatCount="indefinite" begin="0s" calcMode="spline" keySplines="0.2 0 0.8 1" />
+            <animate attributeName="stroke-opacity" from="0.22" to="0" dur="3.2s" repeatCount="indefinite" begin="0s" />
+          </circle>
+          <circle cx="170" cy="100" fill="none" stroke="#22c55e" stroke-width="1.2">
+            <animate attributeName="r" from="10" to="255" dur="3.2s" repeatCount="indefinite" begin="1.6s" calcMode="spline" keySplines="0.2 0 0.8 1" />
+            <animate attributeName="stroke-opacity" from="0.22" to="0" dur="3.2s" repeatCount="indefinite" begin="1.6s" />
+          </circle>
+
+          <!-- GW-2 ripples (r → 255) -->
+          <circle cx="630" cy="100" fill="none" stroke="#22c55e" stroke-width="1.2">
+            <animate attributeName="r" from="10" to="255" dur="3.2s" repeatCount="indefinite" begin="0.8s" calcMode="spline" keySplines="0.2 0 0.8 1" />
+            <animate attributeName="stroke-opacity" from="0.22" to="0" dur="3.2s" repeatCount="indefinite" begin="0.8s" />
+          </circle>
+          <circle cx="630" cy="100" fill="none" stroke="#22c55e" stroke-width="1.2">
+            <animate attributeName="r" from="10" to="255" dur="3.2s" repeatCount="indefinite" begin="2.4s" calcMode="spline" keySplines="0.2 0 0.8 1" />
+            <animate attributeName="stroke-opacity" from="0.22" to="0" dur="3.2s" repeatCount="indefinite" begin="2.4s" />
+          </circle>
+
+          <!-- GW-3 ripples (r → 180) -->
+          <circle cx="400" cy="390" fill="none" stroke="#22c55e" stroke-width="1.2">
+            <animate attributeName="r" from="10" to="180" dur="3.2s" repeatCount="indefinite" begin="1.6s" calcMode="spline" keySplines="0.2 0 0.8 1" />
+            <animate attributeName="stroke-opacity" from="0.22" to="0" dur="3.2s" repeatCount="indefinite" begin="1.6s" />
+          </circle>
+          <circle cx="400" cy="390" fill="none" stroke="#22c55e" stroke-width="1.2">
+            <animate attributeName="r" from="10" to="180" dur="3.2s" repeatCount="indefinite" begin="3.2s" calcMode="spline" keySplines="0.2 0 0.8 1" />
+            <animate attributeName="stroke-opacity" from="0.22" to="0" dur="3.2s" repeatCount="indefinite" begin="3.2s" />
+          </circle>
 
           <!-- ══ GATEWAY CARDS ══ -->
 
@@ -149,55 +181,51 @@
             <animate attributeName="fill-opacity" values="0.4;0;0.4" dur="2.2s" repeatCount="indefinite" begin="1.4s" />
           </circle>
 
-          <!-- Ripple waves — each gateway emits 2 staggered expanding rings that fade out -->
+          <!-- TAG — Rack UPS asset card at intersection (400, 210) -->
 
-          <!-- GW-1 ripples -->
-          <circle cx="170" cy="100" fill="none" stroke="#0284c7" stroke-width="1.4">
-            <animate attributeName="r" from="8" to="52" dur="2.4s" repeatCount="indefinite" begin="0s" calcMode="spline" keySplines="0.2 0 0.8 1" />
-            <animate attributeName="stroke-opacity" from="0.45" to="0" dur="2.4s" repeatCount="indefinite" begin="0s" />
-          </circle>
-          <circle cx="170" cy="100" fill="none" stroke="#0284c7" stroke-width="1.4">
-            <animate attributeName="r" from="8" to="52" dur="2.4s" repeatCount="indefinite" begin="1.2s" calcMode="spline" keySplines="0.2 0 0.8 1" />
-            <animate attributeName="stroke-opacity" from="0.45" to="0" dur="2.4s" repeatCount="indefinite" begin="1.2s" />
-          </circle>
-
-          <!-- GW-2 ripples -->
-          <circle cx="630" cy="100" fill="none" stroke="#0284c7" stroke-width="1.4">
-            <animate attributeName="r" from="8" to="52" dur="2.4s" repeatCount="indefinite" begin="0.8s" calcMode="spline" keySplines="0.2 0 0.8 1" />
-            <animate attributeName="stroke-opacity" from="0.45" to="0" dur="2.4s" repeatCount="indefinite" begin="0.8s" />
-          </circle>
-          <circle cx="630" cy="100" fill="none" stroke="#0284c7" stroke-width="1.4">
-            <animate attributeName="r" from="8" to="52" dur="2.4s" repeatCount="indefinite" begin="2.0s" calcMode="spline" keySplines="0.2 0 0.8 1" />
-            <animate attributeName="stroke-opacity" from="0.45" to="0" dur="2.4s" repeatCount="indefinite" begin="2.0s" />
-          </circle>
-
-          <!-- GW-3 ripples -->
-          <circle cx="400" cy="390" fill="none" stroke="#0284c7" stroke-width="1.4">
-            <animate attributeName="r" from="8" to="52" dur="2.4s" repeatCount="indefinite" begin="1.6s" calcMode="spline" keySplines="0.2 0 0.8 1" />
-            <animate attributeName="stroke-opacity" from="0.45" to="0" dur="2.4s" repeatCount="indefinite" begin="1.6s" />
-          </circle>
-          <circle cx="400" cy="390" fill="none" stroke="#0284c7" stroke-width="1.4">
-            <animate attributeName="r" from="8" to="52" dur="2.4s" repeatCount="indefinite" begin="2.8s" calcMode="spline" keySplines="0.2 0 0.8 1" />
-            <animate attributeName="stroke-opacity" from="0.45" to="0" dur="2.4s" repeatCount="indefinite" begin="2.8s" />
-          </circle>
-
-          <!-- TAG — Rack UPS at intersection (400, 210) -->
+          <!-- Subtle pulse ring behind card -->
           <circle cx="400" cy="210" r="24" stroke="#0284c7" stroke-width="1"
             stroke-dasharray="3,3" fill="none">
-            <animate attributeName="r" values="20;32;20" dur="2s" repeatCount="indefinite" />
-            <animate attributeName="stroke-opacity" values="0.5;0.1;0.5" dur="2s" repeatCount="indefinite" />
+            <animate attributeName="r" values="22;40;22" dur="2s" repeatCount="indefinite" />
+            <animate attributeName="stroke-opacity" values="0.35;0.06;0.35" dur="2s" repeatCount="indefinite" />
           </circle>
-          <circle cx="400" cy="210" r="11" fill="#0284c7" filter="url(#glow)" />
-          <circle cx="400" cy="210" r="5.5" fill="white" />
 
-          <!-- Tag label — centered below dot with clear vertical spacing -->
-          <text x="400" y="250" text-anchor="middle" font-size="11" fill="#0f172a"
+          <!-- Asset card: x=320 y=178 w=160 h=64 rx=12 -->
+          <rect x="320" y="178" width="160" height="64" rx="12"
+            fill="white" stroke="#e2e8f0" stroke-width="1" />
+
+          <!-- Server / rack icon background -->
+          <rect x="330" y="188" width="32" height="32" rx="7" fill="#f0f9ff" />
+          <!-- Rack unit rows -->
+          <rect x="335" y="193" width="22" height="5" rx="1.5" fill="#0284c7" fill-opacity="0.75" />
+          <circle cx="354" cy="195.5" r="1.8" fill="#22c55e" />
+          <rect x="335" y="201" width="22" height="5" rx="1.5" fill="#0284c7" fill-opacity="0.5" />
+          <circle cx="354" cy="203.5" r="1.8" fill="#22c55e" fill-opacity="0.55" />
+          <rect x="335" y="209" width="15" height="5" rx="1.5" fill="#0284c7" fill-opacity="0.28" />
+
+          <!-- Asset name & location -->
+          <text x="372" y="199" font-size="10.5" fill="#0f172a"
             font-family="system-ui, sans-serif" font-weight="700">Rack UPS</text>
-          <text x="400" y="263" text-anchor="middle" font-size="8.5" fill="#94a3b8"
-            font-family="ui-monospace, monospace">tag A-17</text>
-          <rect x="336" y="270" width="128" height="16" rx="8"
+          <text x="372" y="212" font-size="8.5" fill="#64748b"
+            font-family="system-ui, sans-serif">Sala técnica</text>
+
+          <!-- BLE tag chip -->
+          <rect x="372" y="217" width="58" height="14" rx="7"
+            fill="#f0f9ff" stroke="#bae6fd" stroke-width="1" />
+          <text x="401" y="227" text-anchor="middle" font-size="7.5" fill="#0369a1"
+            font-family="ui-monospace, monospace" font-weight="600">tag A-17</text>
+
+          <!-- Active dot top-right corner -->
+          <circle cx="470" cy="185" r="4" fill="#22c55e" />
+          <circle cx="470" cy="185" r="4" fill="#22c55e" fill-opacity="0.4">
+            <animate attributeName="r" values="4;8;4" dur="2.2s" repeatCount="indefinite" begin="0.3s" />
+            <animate attributeName="fill-opacity" values="0.4;0;0.4" dur="2.2s" repeatCount="indefinite" begin="0.3s" />
+          </circle>
+
+          <!-- POSICIÓN ESTIMADA badge below card -->
+          <rect x="338" y="249" width="124" height="16" rx="8"
             fill="#0284c7" fill-opacity="0.1" stroke="#bae6fd" stroke-width="1" />
-          <text x="400" y="282" text-anchor="middle" font-size="7.5" fill="#0369a1"
+          <text x="400" y="261" text-anchor="middle" font-size="7.5" fill="#0369a1"
             font-family="system-ui, sans-serif" font-weight="700" letter-spacing="0.04em">POSICIÓN ESTIMADA</text>
 
         </svg>
