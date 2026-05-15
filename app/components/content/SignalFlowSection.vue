@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white">
+  <section class="sfw-section">
 
     <!-- ── Desktop: 2-col (diagram left, text right) ── -->
     <div class="sfw-desktop">
@@ -74,17 +74,19 @@
             <div class="dvc-traveler" />
           </div>
 
-          <!-- 5. Asetio: centered, equal icons -->
+          <!-- 5. Asetio -->
           <div class="diag-center-row">
             <div class="diag-node diag-node-asetio">
-              <div class="diag-node-icons">
-                <div class="diag-icon-eq diag-icon-brand">
-                  <img src="/favicon.png" alt="Asetio" class="h-5 w-auto" />
-                </div>
-                <span class="diag-node-label">Gestión de alertas</span>
-                <div class="diag-icon-eq diag-icon-bell">
-                  <UIcon name="i-lucide-bell-ring" class="size-5 text-amber-500" />
-                </div>
+              <img src="/favicon.png" alt="Asetio" class="diag-asetio-logo" />
+              <div class="diag-asetio-chips">
+                <span class="diag-chip diag-chip-blue">
+                  <UIcon name="i-lucide-radio-tower" class="size-3" />
+                  Monitoreo
+                </span>
+                <span class="diag-chip diag-chip-amber">
+                  <UIcon name="i-lucide-bell-ring" class="size-3" />
+                  Incidencias
+                </span>
               </div>
             </div>
           </div>
@@ -110,14 +112,14 @@
             </div>
           </div>
 
-          <!-- 8. Empresa -->
+          <!-- 8. Monitores -->
           <div class="diag-center-row">
             <div class="diag-node diag-node-empresa">
               <div class="diag-node-centered">
                 <div class="diag-icon-eq diag-icon-slate">
-                  <UIcon :name="steps[3]?.icon" class="size-5" />
+                  <UIcon name="i-lucide-users" class="size-5" />
                 </div>
-                <span class="diag-node-label">Tu empresa</span>
+                <span class="diag-node-label">Monitores</span>
               </div>
             </div>
           </div>
@@ -207,12 +209,12 @@
           <div class="m-conn-line" /><div class="m-conn-dot" /><div class="m-conn-line" />
         </div>
 
-        <div class="m-card m-card-row">
-          <div class="m-node-icon m-icon-brand">
-            <img src="/favicon.png" alt="" class="h-5 w-auto" />
+        <div class="m-card" style="width:100%;max-width:480px;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 16px;">
+          <img src="/favicon.png" alt="Asetio" style="height:20px;width:auto;display:block;" />
+          <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;">
+            <span class="diag-chip diag-chip-blue"><UIcon name="i-lucide-radio-tower" class="size-3" />Monitoreo</span>
+            <span class="diag-chip diag-chip-amber"><UIcon name="i-lucide-bell-ring" class="size-3" />Incidencias</span>
           </div>
-          <span class="m-title-md" style="flex:1">Gestión de alertas</span>
-          <UIcon name="i-lucide-bell-ring" class="size-5 text-amber-500 shrink-0" />
         </div>
 
         <div class="m-conn" aria-hidden="true">
@@ -241,15 +243,12 @@
           <div class="m-conn-line m-conn-line-amber" /><div class="m-conn-dot m-conn-dot-amber" /><div class="m-conn-line m-conn-line-amber" />
         </div>
 
-        <!-- Empresa -->
+        <!-- Monitores -->
         <div class="m-card m-card-row">
           <div class="m-node-icon m-icon-slate">
-            <UIcon :name="steps[3]?.icon" class="size-5" />
+            <UIcon name="i-lucide-users" class="size-5" />
           </div>
-          <div>
-            <p class="m-kicker">{{ steps[3]?.badge }}</p>
-            <h3 class="m-title-md">{{ steps[3]?.title }}</h3>
-          </div>
+          <h3 class="m-title-md">Monitores</h3>
         </div>
       </div>
     </div>
@@ -260,7 +259,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const words = ['Monitoreo continuo', 'Observabilidad continua', 'Alertas en tiempo real']
+const words = ['Monitoreo continuo', 'Observabilidad continua', 'Incidencias en tiempo real']
 const displayText = ref('')
 const isCursorBlinking = ref(false)
 let currentWord = 0
@@ -327,6 +326,31 @@ const assets = [
 /* ════════════════════════════════
    SECTION SHELL
 ════════════════════════════════ */
+
+.sfw-section {
+  position: relative;
+  background: white;
+}
+
+.sfw-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-color: #f0f9ff;
+  background-image: radial-gradient(circle, #bae6fd 1px, transparent 1px);
+  background-size: 28px 28px;
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Sit above the ::before background layer */
+.sfw-desktop,
+.sfw-mobile {
+  position: relative;
+  z-index: 1;
+}
 
 /* Mobile: single column — same diagram, scaled down */
 .sfw-desktop {
@@ -640,7 +664,50 @@ const assets = [
   place-items: center;
   box-shadow: 0 0 0 6px rgb(14 165 233 / 0.08), 0 6px 20px rgb(14 165 233 / 0.12);
 }
-.diag-node-asetio  { width: 300px; padding: 16px 20px; }
+.diag-node-asetio {
+  width: 260px;
+  padding: 14px 18px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.diag-asetio-logo {
+  height: 22px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.diag-asetio-chips {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+
+.diag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.diag-chip-blue {
+  background: #f0f9ff;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+
+.diag-chip-amber {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
 .diag-node-empresa { width: 220px; padding: 16px 20px; }
 
 /* ── Cross layout: CSS-only, no SVG ── */

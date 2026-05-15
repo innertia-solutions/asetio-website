@@ -1,13 +1,22 @@
 <script setup lang="ts">
+onMounted(() => {
+  const clear = () => {
+    if (window.scrollY < 80 && window.location.hash)
+      history.replaceState(null, '', window.location.pathname)
+  }
+  window.addEventListener('scroll', clear, { passive: true })
+  onUnmounted(() => window.removeEventListener('scroll', clear))
+})
+
 useSeoMeta({
   title: 'Asetio - Operaciones de activos en tiempo real',
-  description: 'Gestiona activos de alto valor, monitorea su estado en tiempo real y coordina alertas, mantenimiento y responsables desde una sola plataforma.',
+  description: 'Gestiona activos de alto valor, monitorea su estado en tiempo real y coordina incidencias, mantenimiento y responsables desde una sola plataforma.',
 })
 
 const stats = [
-  { value: 'Inventario', label: 'Un registro vivo por activo crítico', icon: 'i-lucide-database' },
-  { value: 'Estado en tiempo real', label: 'Señales, ubicación y condición actualizadas', icon: 'i-lucide-activity' },
-  { value: 'Acción trazable', label: 'Alertas, responsables y mantenimiento conectado', icon: 'i-lucide-bell-ring' },
+  { value: 'Inventario vivo', label: 'Un registro actualizado por activo crítico', icon: 'i-lucide-database' },
+  { value: 'Monitoreo automatizado', label: 'Señales, ubicación y condición en tiempo real', icon: 'i-lucide-radio-tower' },
+  { value: 'Gestión de incidencias', label: 'Casos, responsables y cierre trazable', icon: 'i-lucide-bell-ring' },
 ]
 
 const signalFlowSteps = [
@@ -39,9 +48,9 @@ const signalFlowSteps = [
     icon: 'i-lucide-building-2',
     title: 'Empresa',
     badge: 'Acción',
-    description: 'La alerta llega al equipo correcto con contexto para responder y cerrar el caso.',
+    description: 'La incidencia llega al equipo correcto con contexto para responder y cerrar el caso.',
     signalLabel: 'Respuesta',
-    signal: 'Alerta, tarea, evidencia, historial',
+    signal: 'Incidencia, tarea, evidencia, historial',
   },
 ]
 
@@ -79,18 +88,51 @@ const platformLayers = [
   {
     icon: 'i-lucide-list-checks',
     title: 'Acción y cierre',
-    description: 'Alertas, casos y tareas con responsable, severidad, plazo y evidencia de cierre.',
-    points: ['Alertas por regla o excepción', 'Mantenimiento preventivo y correctivo', 'Historial completo para auditoría'],
+    description: 'Incidencias, casos y tareas con responsable, severidad, plazo y evidencia de cierre.',
+    points: ['Incidencias por regla o excepción', 'Mantenimiento preventivo y correctivo', 'Historial completo para auditoría'],
   },
 ]
 
-const features = [
-  { icon: 'i-lucide-box', title: 'Inventario vivo', description: 'Activos, atributos, responsables, ubicaciones y QR en un registro único.' },
-  { icon: 'i-lucide-activity', title: 'Estado en tiempo real', description: 'Condición, zona operativa y última lectura disponibles en paneles claros.' },
-  { icon: 'i-lucide-bell-ring', title: 'Alertas por condición', description: 'Detecta activos fuera de zona, sin lectura o con riesgo operativo.' },
-  { icon: 'i-lucide-shield-alert', title: 'Control de riesgo', description: 'Priorización por criticidad, responsables definidos y bitácora para auditoría.' },
-  { icon: 'i-lucide-wrench', title: 'Mantenimiento conectado', description: 'Órdenes, inspecciones y tareas vinculadas al historial real del activo.' },
-  { icon: 'i-lucide-code', title: 'Integraciones', description: 'API y webhooks para conectar con ERP, BI, mantenimiento y sistemas internos.' },
+const featureGroups = [
+  {
+    pillar: 'Inventario vivo',
+    icon: 'i-lucide-database',
+    color: 'text-sky-600',
+    features: [
+      'Registro único por activo',
+      'Atributos, responsable y ubicación',
+      'Jerarquías padre-hijo',
+      'Captura por QR, telemetría o formulario',
+      'Mapa relacional interactivo',
+      'Auditoría de cambios',
+    ],
+  },
+  {
+    pillar: 'Monitoreo automatizado',
+    icon: 'i-lucide-radio-tower',
+    color: 'text-emerald-600',
+    features: [
+      'Estado operativo en tiempo real',
+      'Triangulación BLE de posición',
+      'Geocercas sin GPS',
+      'Cobertura por zonas y gateways',
+      'Última señal y última vez visto',
+      'Priorización por criticidad',
+    ],
+  },
+  {
+    pillar: 'Gestión de incidencias',
+    icon: 'i-lucide-bell-ring',
+    color: 'text-amber-600',
+    features: [
+      'Casos con responsable y plazo',
+      'Evidencia de cierre trazable',
+      'Mantenimiento preventivo y correctivo',
+      'Historial completo por activo',
+      'API y webhooks',
+      'Integración con ERP, BI y CMMS',
+    ],
+  },
 ]
 
 const useCases = [
@@ -100,18 +142,13 @@ const useCases = [
   { icon: 'i-lucide-shield-check', title: 'Operaciones auditables', description: 'Historial por activo para cumplimiento, continuidad operacional y gestión de riesgo.' },
 ]
 
-const trustItems = [
-  { icon: 'i-lucide-plug', title: 'API y webhooks', description: 'Conecta con ERP, BI, mantenimiento y sistemas internos existentes.' },
-  { icon: 'i-lucide-radio-tower', title: 'Fuentes de captura flexibles', description: 'Telemetría, QR, inspecciones y datos manuales dentro de un mismo modelo.' },
-  { icon: 'i-lucide-lock-keyhole', title: 'Trazabilidad y evidencia', description: 'Cada alerta, tarea y cambio ligado al activo, al responsable y al resultado.' },
-]
 </script>
 
 <template>
   <div>
     <ContentCustomHero
       title="Activos de alto valor, siempre visibles y bajo control."
-      description="Inventario, estado operativo, alertas y mantenimiento en una sola plataforma. Cada activo crítico con trazabilidad, responsable y acción siguiente."
+      description="Inventario, estado operativo, incidencias y mantenimiento en una sola plataforma. Cada activo crítico con trazabilidad, responsable y acción siguiente."
       :primary-button="{ text: 'Solicitar demo', to: 'mailto:hola@asetio.com' }"
     />
 
@@ -120,31 +157,17 @@ const trustItems = [
     <ContentSignalFlowSection
       eyebrow="[ en operación ]"
       title="Señal recibida. Responsable asignado. Caso abierto."
-      description="Sin pasos manuales ni información perdida. Cada evento operativo genera la alerta, el responsable y el historial correcto."
+      description="Sin pasos manuales ni información perdida. Cada evento operativo genera la incidencia, el responsable y el historial correcto."
       outcome-title="Una señal no queda perdida en la red."
-      outcome-description="Cada lectura puede terminar en estado actualizado, alerta priorizada, tarea de mantenimiento o historial auditable."
+      outcome-description="Cada lectura puede terminar en estado actualizado, incidencia priorizada, tarea de mantenimiento o historial auditable."
       outcome-badge="Evento trazable"
       :steps="signalFlowSteps"
     />
 
-    <ContentProblemSection
-      eyebrow="El problema"
-      title="La operación pierde control cuando el activo existe en una planilla y la realidad ocurre en terreno."
-      description="Cuando un activo crítico cambia de estado, sale de zona o requiere mantenimiento, el sistema debe convertir ese evento en una acción trazable."
-      :problems="problems"
-    />
-
-    <ContentPlatformLayers
-      eyebrow="Plataforma"
-      title="Tres capas para operar activos críticos con trazabilidad."
-      description="Del registro digital del activo a las acciones del equipo en terreno."
-      :layers="platformLayers"
-    />
-
     <ContentFeaturesSection
       title="Gestión operacional"
-      subtitle="Todo para proteger activos críticos y sostener la continuidad."
-      :features="features"
+      subtitle="Todo lo que necesita tu operación, organizado por lo que hace."
+      :groups="featureGroups"
     />
 
     <ContentUseCasesSection
@@ -154,14 +177,11 @@ const trustItems = [
       :use-cases="useCases"
     />
 
+    <ContentAssetGraphSection />
+
     <ContentArchitectureDiagram />
 
-    <ContentTrustSection
-      eyebrow="Preparado para operar"
-      title="Diseñado para crecer con tu operación."
-      description="Convive con los sistemas existentes y escala con tu operación."
-      :items="trustItems"
-    />
+    <ContentGeofencingSection />
 
     <ContentFinalCta
       eyebrow="Siguiente paso"

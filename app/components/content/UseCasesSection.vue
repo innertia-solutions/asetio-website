@@ -1,5 +1,5 @@
 <template>
-  <section id="casos" class="bg-white">
+  <section id="casos" class="bg-slate-50">
     <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div class="mb-10 flex flex-col justify-between gap-5 lg:flex-row lg:items-end">
         <div class="max-w-3xl">

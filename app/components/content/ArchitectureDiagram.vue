@@ -4,7 +4,7 @@
 
       <!-- Header -->
       <div class="mb-10">
-        <p class="text-sm font-semibold text-sky-700">Monitoreo continuo</p>
+        <p class="text-sm font-semibold text-sky-700">Monitoreo automatizado</p>
         <h2 class="mt-2 text-3xl font-semibold text-slate-950">Triangulación BLE en tiempo real</h2>
         <p class="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
           Tres gateways miden la señal de cada tag. Con esos tres valores de distancia, Asetio calcula la posición
@@ -243,8 +243,8 @@
             <p class="mt-2 text-sm text-slate-600">Asetio calcula dónde se intersectan los tres radios de señal. Ese punto es la posición del activo.</p>
           </div>
           <div class="p-5">
-            <p class="text-sm font-semibold text-slate-950">Alerta cuando importa</p>
-            <p class="mt-2 text-sm text-slate-600">Si la posición calculada sale de la zona esperada, se genera una alerta con responsable y contexto del activo.</p>
+            <p class="text-sm font-semibold text-slate-950">Incidencia cuando importa</p>
+            <p class="mt-2 text-sm text-slate-600">Si la posición calculada sale de la zona esperada, se genera una incidencia con responsable y contexto del activo.</p>
           </div>
         </div>
       </div>

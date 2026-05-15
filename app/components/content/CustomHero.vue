@@ -124,7 +124,7 @@
                   </div>
                   <div class="ph-nav-item">
                     <UIcon name="i-lucide-bell-ring" class="size-3.5" />
-                    <span>Alertas</span>
+                    <span>Incidencias</span>
                   </div>
                   <div class="ph-nav-item">
                     <UIcon name="i-lucide-wrench" class="size-3.5" />
